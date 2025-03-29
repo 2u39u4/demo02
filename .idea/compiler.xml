@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="social-api" />
+        <module name="social-domain" />
+        <module name="social-infrastructure" />
+        <module name="social-app" />
+        <module name="social-trigger" />
+        <module name="social-types" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="social-api" options="-parameters" />
+      <module name="social-app" options="-parameters" />
+      <module name="social-domain" options="-parameters" />
+      <module name="social-infrastructure" options="-parameters" />
+      <module name="social-trigger" options="-parameters" />
+      <module name="social-types" options="-parameters" />
+      <module name="social-wechat-miniapp" options="-parameters" />
+    </option>
+  </component>
+</project>
