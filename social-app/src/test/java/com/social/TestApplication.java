@@ -23,6 +23,7 @@ public class TestApplication {
     public void test() {
         System.out.println("hello world");
         List<User> users= getUserMapper.getAllUsers();
+        users.forEach(System.out::println);
     }
 
     //测试redisson

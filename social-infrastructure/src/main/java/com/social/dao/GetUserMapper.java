@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 public interface GetUserMapper {
 
-    @Select("select * from users")
+//    @Select("select * from users")
     public List<User> getAllUsers();
 }
