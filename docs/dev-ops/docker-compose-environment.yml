@@ -16,12 +16,24 @@ services:
       - backend
 
   redis:
-    image: redis:latest
+    image: redis:7.4.2  # Fixed version of Redis
     container_name: redis-server
     ports:
       - "6379:6379"
     networks:
       - backend
+
+  rabbitmq:
+    image: rabbitmq:3.8-management  # Fixed version of RabbitMQ with management plugin
+    container_name: rabbitmq-server
+    ports:
+      - "5672:5672"  # RabbitMQ AMQP protocol
+      - "15672:15672"  # RabbitMQ management web interface
+    networks:
+      - backend
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
 
 volumes:
   mysql-data:
