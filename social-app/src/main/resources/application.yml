@@ -34,3 +34,12 @@ redis:
       retry-interval: 1000
       ping-interval: 60000
       keep-alive: true
+
+# 日志配置,最高优先级,之后才到logback-spring.xml
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+  file:
+    name: ${user.dir}/logs/spring-boot-app.log
+    path: ${user.dir}/logs

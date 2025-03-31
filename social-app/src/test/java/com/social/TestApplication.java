@@ -3,12 +3,14 @@ package com.social;
 import com.social.dao.GetUserMapper;
 import com.social.dao.entity.User;
 import com.social.redis.RedissonService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+@Slf4j
 @SpringBootTest
 //@MapperScan("com.social.dao")
 public class TestApplication {
@@ -34,4 +36,13 @@ public class TestApplication {
         User user1 = redissonService.getValue("user");
         System.out.println(user1);
     }
+
+    //测试logback
+    @Test
+    public void testLogback() {
+        log.info("info hello");
+        log.debug("debug yes");
+        log.error("error xxxxxxx");
+    }
+
 }
