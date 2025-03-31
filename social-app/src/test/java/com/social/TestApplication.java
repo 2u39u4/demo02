@@ -1,5 +1,6 @@
 package com.social;
 
+import com.social.config.MessageProducer;
 import com.social.dao.GetUserMapper;
 import com.social.dao.entity.User;
 import com.social.redis.RedissonService;
@@ -18,17 +19,16 @@ public class TestApplication {
     @Autowired
     private GetUserMapper getUserMapper;
 
-    @Autowired
-    private RedissonService redissonService;
-
     @Test
-    public void test() {
+    public void testMapper() {
         System.out.println("hello world");
         List<User> users= getUserMapper.getAllUsers();
         users.forEach(System.out::println);
     }
 
     //测试redisson
+    @Autowired
+    private RedissonService redissonService;
     @Test
     public void testRedisson() {
         User user = new User(1, "test", 18);
@@ -43,6 +43,18 @@ public class TestApplication {
         log.info("info hello");
         log.debug("debug yes");
         log.error("error xxxxxxx");
+    }
+
+    //测试rabbitmq
+    @Autowired
+    private MessageProducer messageProducer;
+    @Test
+    public void testRabbitmq() {
+        try{
+            messageProducer.sendMessage("Hello, RabbitMQ!");
+        }catch (Exception e){
+            log.error("RabbitMQ发送消息失败", e);
+        }
     }
 
 }

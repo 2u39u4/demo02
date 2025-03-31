@@ -11,6 +11,14 @@
 
     <artifactId>social-domain</artifactId>
 
+    <dependencies>
+        <!--工程模块-->
+        <dependency>
+            <groupId>com.social</groupId>
+            <artifactId>social-types</artifactId>
+        </dependency>
+    </dependencies>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
