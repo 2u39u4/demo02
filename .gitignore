@@ -34,3 +34,5 @@ build/
 
 ### 日志 ###
 *.log
+
+resources/static/

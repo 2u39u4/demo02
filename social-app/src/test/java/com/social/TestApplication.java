@@ -1,8 +1,10 @@
 package com.social;
 
 import com.social.config.MessageProducer;
-import com.social.dao.GetUserMapper;
-import com.social.dao.entity.User;
+import com.social.dao.mongodb.UserService;
+import com.social.dao.mysql.GetUserMapper;
+//import com.social.dao.mysql.entity.User;
+import com.social.dao.mongodb.entity.User;
 import com.social.redis.RedissonService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -21,9 +23,9 @@ public class TestApplication {
 
     @Test
     public void testMapper() {
-        System.out.println("hello world");
-        List<User> users= getUserMapper.getAllUsers();
-        users.forEach(System.out::println);
+//        System.out.println("hello world");
+//        List<User> users= getUserMapper.getAllUsers();
+//        users.forEach(System.out::println);
     }
 
     //测试redisson
@@ -31,10 +33,10 @@ public class TestApplication {
     private RedissonService redissonService;
     @Test
     public void testRedisson() {
-        User user = new User(1, "test", 18);
-        redissonService.setValue("user", user);
-        User user1 = redissonService.getValue("user");
-        System.out.println(user1);
+//        User user = new User(1, "test", 18);
+//        redissonService.setValue("user", user);
+//        User user1 = redissonService.getValue("user");
+//        System.out.println(user1);
     }
 
     //测试logback
@@ -54,6 +56,19 @@ public class TestApplication {
             messageProducer.sendMessage("Hello, RabbitMQ!");
         }catch (Exception e){
             log.error("RabbitMQ发送消息失败", e);
+        }
+    }
+
+    //测试mongodb
+    @Autowired
+    private UserService userService;
+    @Test
+    public void testMongodb() {
+        User user = userService.getUserByName("张三");
+        if(user != null){
+            log.info("user: {}", user);
+        }else{
+            log.info("user not found");
         }
     }
 

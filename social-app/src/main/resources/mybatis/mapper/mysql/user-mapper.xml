@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.social.dao.GetUserMapper">
+<mapper namespace="com.social.dao.mysql.GetUserMapper">
 
     <!-- 使用 resultMap 映射数据库字段与 Java 对象字段的关系 -->
-    <resultMap id="userResultMap" type="com.social.dao.entity.User">
+    <resultMap id="userResultMap" type="com.social.dao.mysql.entity.User">
         <result property="id" column="id"/>
         <result property="name" column="username"/> <!-- 映射数据库的 username 字段到 User 的 name 属性 -->
         <result property="age" column="age"/>

@@ -1,8 +1,7 @@
-package com.social.dao;
+package com.social.dao.mysql;
 
-import com.social.dao.entity.User;
+import com.social.dao.mysql.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 

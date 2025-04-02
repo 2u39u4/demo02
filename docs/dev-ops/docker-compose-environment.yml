@@ -15,6 +15,18 @@ services:
     networks:
       - backend
 
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0.12-ubi9   # 使用官方 MongoDB Community 版镜像
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root   # 设置 root 用户名
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword  # 设置 root 密码
+      MONGO_INITDB_DATABASE: mydb  # 默认创建的数据库
+    ports:
+      - "27017:27017"  # 映射端口
+    networks:
+      - backend
+
   redis:
     image: redis:7.4.2  # Fixed version of Redis
     container_name: redis-server
@@ -34,6 +46,7 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: user
       RABBITMQ_DEFAULT_PASS: password
+
 
 volumes:
   mysql-data:
