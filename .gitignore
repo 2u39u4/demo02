@@ -33,6 +33,6 @@ build/
 .vscode/
 
 ### 日志 ###
-*.log
+logs
 
 resources/static/
