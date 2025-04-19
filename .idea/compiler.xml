@@ -7,18 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="social-api" />
-        <module name="social-trigger" />
-        <module name="social-domain" />
-        <module name="social-infrastructure" />
-        <module name="social-app" />
-        <module name="social-types" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.5" />
       <module name="pojo" target="1.5" />
       <module name="server" target="1.5" />
+      <module name="social-api" target="17" />
+      <module name="social-app" target="17" />
+      <module name="social-domain" target="17" />
+      <module name="social-infrastructure" target="17" />
+      <module name="social-trigger" target="17" />
+      <module name="social-types" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -31,11 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-<<<<<<< HEAD
-
-### 日志 ###
-logs
-
-resources/static/
-=======
->>>>>>> 2db4e0e16b1db11af2b2f58242b5b7c4367fb3d0
