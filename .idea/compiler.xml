@@ -8,16 +8,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="social-api" />
+        <module name="social-trigger" />
         <module name="social-domain" />
         <module name="social-infrastructure" />
         <module name="social-app" />
-        <module name="social-trigger" />
         <module name="social-types" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.5" />
+      <module name="pojo" target="1.5" />
+      <module name="server" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo02" options="-parameters" />
       <module name="social-api" options="-parameters" />
       <module name="social-app" options="-parameters" />
       <module name="social-domain" options="-parameters" />
