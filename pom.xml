@@ -42,6 +42,7 @@
     <properties>
         <java.version>17</java.version>
         <spring-boot.version>3.4.4</spring-boot.version>
+        <uuid.version>4.0.1</uuid.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -52,6 +53,16 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.uuid</groupId>
+                <artifactId>java-uuid-generator</artifactId>
+                <version>${uuid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
@@ -96,6 +107,8 @@
                 <version>1.18.26</version>
                 <optional>true</optional><!--optional表示是否可选-->
             </dependency>
+
+
 
             <!--工程模块-->
             <dependency>

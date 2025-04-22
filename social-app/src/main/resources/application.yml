@@ -2,13 +2,13 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3307/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: rootpassword
   # mongodb
-  data:
-    mongodb:
-      uri: mongodb://root:rootpassword@localhost:27017/mydb?authSource=admin
+#  data:
+#    mongodb:
+#      uri: mongodb://root:rootpassword@localhost:27017/mydb?authSource=admin
 #      authentication-database: admin
   # rabbitmq
   rabbitmq:

@@ -36,12 +36,17 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
 
         <!--工程模块-->
-        <dependency>
-            <groupId>com.social</groupId>
-            <artifactId>social-domain</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.social</groupId>-->
+<!--            <artifactId>social-domain</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <properties>

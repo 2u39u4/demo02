@@ -26,6 +26,10 @@
             <groupId>com.social</groupId>
             <artifactId>social-types</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.social</groupId>
+            <artifactId>social-infrastructure</artifactId>
+        </dependency>
     </dependencies>
 
     <properties>
