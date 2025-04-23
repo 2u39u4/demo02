@@ -16,3 +16,4 @@ public class Response<T> implements Serializable {
     private String msg;
     private T data;
 }
+//Response.<List<T>>builder().code(1).msg("success").data(list).build();

@@ -1,0 +1,1 @@
+scp -r ./dev-ops root@47.106.199.211:~/work-env/

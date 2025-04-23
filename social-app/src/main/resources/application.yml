@@ -5,11 +5,13 @@ spring:
     url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: rootpassword
+
   # mongodb
-  data:
-    mongodb:
-      uri: mongodb://root:rootpassword@localhost:27017/mydb?authSource=admin
+#  data:
+#    mongodb:
+#      uri: mongodb://root:rootpassword@localhost:27017/mydb?authSource=admin
 #      authentication-database: admin
+
   # rabbitmq
   rabbitmq:
     host: localhost
@@ -19,7 +21,7 @@ spring:
     virtual-host: /
     listener:
       simple:
-        prefetch: 1 # 每次投递n个消息，消费完在投递n个
+        prefetch: 1 # 每次都取一条消息
 
 # Mybatis配置
 mybatis:
