@@ -1,6 +1,7 @@
 package com.social.config.ws;
 
 import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 @Component
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
@@ -30,11 +32,13 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         String userId = UUID.randomUUID().toString();
         session.getAttributes().put("userId", userId);
         sessions.put(userId, session);
+//        log.info("xxxxx connect:{}", userId);
     }
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) {
         String userId = (String) session.getAttributes().get("userId");
+//        log.info("handleTextMessage message:{}", message.getPayload());
         router.route(userId, message.getPayload());//转发
     }
 
