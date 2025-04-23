@@ -7,21 +7,27 @@ import com.social.annotations.WsHandler;
 
 import com.social.response.WsResponse;
 import com.social.ws.MessageContext;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+
 import org.springframework.web.socket.WebSocketSession;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+@Configuration
+@ComponentScan(basePackages = {"com.social.ws"},
+        includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION,
+                value = WsHandler.class))
 public class MessageRouter implements ApplicationContextAware {
 
     private ApplicationContext context;
-    private boolean initialized = false;
 
     private final Map<String, Method> handlerMap = new HashMap<>();
     private final Map<Method, Object> beanMap = new HashMap<>();
@@ -34,14 +40,9 @@ public class MessageRouter implements ApplicationContextAware {
         this.context = applicationContext;
     }
 
-    public void setSessions(Map<String, WebSocketSession> sessions) {
-        mcontext.setSessions(sessions);
-    }
-
-    private synchronized void initIfNeeded() {
-        if (initialized) return;
-
-        for (Object bean : context.getBeansWithAnnotation(Component.class).values()) {
+    @PostConstruct
+    public void init() {
+        for (Object bean : context.getBeansWithAnnotation(WsHandler.class).values()) {
             for (Method method : bean.getClass().getDeclaredMethods()) {
                 if (method.isAnnotationPresent(WsHandler.class)) {
                     String type = method.getAnnotation(WsHandler.class).value();
@@ -50,14 +51,14 @@ public class MessageRouter implements ApplicationContextAware {
                 }
             }
         }
-
-        initialized = true;
     }
 
+    public void setSessions(Map<String, WebSocketSession> sessions) {
+        mcontext.setSessions(sessions);
+    }
 
     public void route(String userId, String payload) {
         try {
-            initIfNeeded(); // 懒加载注册
             // 创建 ObjectMapper 实例
             ObjectMapper objectMapper = new ObjectMapper();
 

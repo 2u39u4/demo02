@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 public @interface WsHandler {
     String value(); // 消息类型，如 "ping"
 }
+//只对com.socail.ws中的component生效
 
 
